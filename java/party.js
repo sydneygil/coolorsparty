@@ -1,4 +1,5 @@
-const baseURL = 'https://coolors.co/generate';
+const baseURL = 'https://coolorsparty.herokuapp.com/'
+const coolorsurl = 'https://coolors.co/generate'
 
 let d = new Date();
 document.body.innerHTML += "<h1>Today's date is " + d + "</h1>"
@@ -13,7 +14,7 @@ document.body.innerHTML += "<h1>Today's date is " + d + "</h1>"
 // xhr.send();
 
 getColors = () => {
-  fetch(baseURL)
+  fetch(baseURL+coolorsurl)
     .then(response => response.json())
     .then(data => {
       console.log(data)
