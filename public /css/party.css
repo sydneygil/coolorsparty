@@ -7,25 +7,6 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-table{
- border: 10px solid grey;
- border-color: #d3d3d3;
- border-top-right-radius: 25px
-}
-
-th {
-  border: 10px solid grey;
-  border-color: #d3d3d3;
-  height: 300px
-}
-
-
-.color-box {
-
-  padding: 50px;
-
-}
-
 .generate {
     margin: 0 auto;
     display: block;
