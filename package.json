@@ -1,0 +1,22 @@
+{
+  "name": "coolorsparty",
+  "version": "1.0.0",
+  "description": "pip3 install -r requirements.txt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sydneygil/coolorsparty.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sydneygil/coolorsparty/issues"
+  },
+  "homepage": "https://github.com/sydneygil/coolorsparty#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
