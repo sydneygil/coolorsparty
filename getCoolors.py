@@ -1,4 +1,5 @@
 from selenium import webdriver
+import json
 
 url = 'https://coolors.co/generate'
 
@@ -25,7 +26,8 @@ def getColors(url):
         # print(colors)
 
     driver.quit()
-    print(colors)
+
+    print(json.dumps(colors))
     # return colors
 
 getColors(url)

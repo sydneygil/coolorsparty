@@ -16,3 +16,11 @@
 
 
 // getColors();
+
+fetch("/colors")
+    .then(response => {
+        return response.json()
+    })
+    .then(data => {
+        console.log(data)
+    })

@@ -4,7 +4,20 @@ const app = express();
 const port = 3000;
 const path = require('path');
 
-app.get('/', (req, res) => {
+
+const bodyConfig = {
+    limit: "10mb",
+    extended: true
+};
+
+app.use(express.urlencoded(bodyConfig));
+app.use(express.json(bodyConfig));
+app.use(express.static('public'));
+
+const middleware = require("./middleware");
+app.use(middleware.cors);
+
+app.get('/colors', (req, res) => {
  var dataToSend;
  
  // spawn new child process to call the python script
@@ -13,7 +26,7 @@ app.get('/', (req, res) => {
  // collect data from script
  python.stdout.on('data', function (data) {
   console.log('Pipe data from python script ...');
-  dataToSend = data.toString();
+  dataToSend = JSON.parse(data.toString());
  });
 
  // in close event we are sure that stream from child process is closed
@@ -25,11 +38,11 @@ app.get('/', (req, res) => {
  });
  
 })
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
-
+// can alias, define a route, leave alone..
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public','party.html'));
 })
 
-app.use(express.static('public'))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
