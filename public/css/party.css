@@ -1,11 +1,33 @@
-
-
 h1 {
-    color: #afeeee !important;
+    color: #afeeee;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+    background-color: white
+}
+
+h6 {
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     padding-top: 50px;
 }
+
+main, body, html {
+    background-color: white;
+}
+
+#apply-button {
+    background-color: gray
+}
+
+#generate-button {
+    background-color: gray;
+}
+
+::selection {
+    background: lightgoldenrodyellow;
+  }
 
 table{
 
@@ -24,7 +46,9 @@ th {
     padding: 50px
 }
 
-.generate {
+.btn-lg {
     margin: 0 auto;
     display: block;
+    margin-bottom: 10px;
 }
+

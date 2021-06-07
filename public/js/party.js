@@ -17,18 +17,27 @@
 
 // getColors();
 
+let colorArr = [];
+
 fetch("/colors")
     .then(response => {
         return response.json()
     })
     .then(data => {
 
+        let data1 = [];
+
         data.forEach((color, i) => {
+          data1[i] = "#" + color
           color = "background-color: #" + color
           console.log(color)
           data[i] = color
-
         });
+
+        // copies the colors generated into a global variable 
+        for (let i=0; i < data1.length; i++ ) {
+            colorArr[i] = data1[i];
+        }
 
         document.querySelector('#color-table').innerHTML = `
             <thead>
@@ -49,12 +58,20 @@ document.querySelector('#generate-button').onclick = ev => {
         })
         .then(data => {
 
+            let data1 = []
+
             data.forEach((color, i) => {
+              data1[i] = "#" + color
               color = "background-color: #" + color
               console.log(color)
               data[i] = color
 
             });
+
+            // copies the colors generated into a global variable 
+            for (let i=0; i < data1.length; i++ ) {
+                colorArr[i] = data1[i];
+            }
 
             document.querySelector('#color-table').innerHTML = `
                 <thead>
@@ -66,4 +83,30 @@ document.querySelector('#generate-button').onclick = ev => {
                 </thead>
             `;
         })
+}
+
+document.querySelector('#apply-button').onclick = ev => {
+    console.log("apply button clicked", colorArr)
+
+    h1 = document.styleSheets[0].cssRules[0].style;
+    h6 = document.styleSheets[0].cssRules[1].style;
+    background = document.styleSheets[0].cssRules[2].style;
+    apply = document.styleSheets[0].cssRules[3].style;
+    generate = document.styleSheets[0].cssRules[4].style;
+    highlight = document.styleSheets[0].cssRules[5].style;
+
+
+    h1.setProperty('color', `${colorArr[4]}`, 'important')
+    h6.setProperty('color', `${colorArr[3]}`, 'important')
+
+    h1.setProperty('background-color', `${colorArr[2]}`)
+    background.setProperty('background-color', `${colorArr[2]}`)
+
+    apply.setProperty('background-color', `${colorArr[1]}`)
+    generate.setProperty('background-color', `${colorArr[1]}`)
+
+    highlight.setProperty('background',   `${colorArr[0]}`)
+
+
+
 }
