@@ -1,13 +1,23 @@
 from selenium import webdriver
 import json
+import os
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 url = 'https://coolors.co/generate'
 
-chromedriver_location = "./drivers/chromedriver"
+# chromedriver_location = "./drivers/chromedriver"
 
 def getColors(url):
     #open up coolors
-    driver = webdriver.Chrome(chromedriver_location)
+    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
+    # driver = webdriver.Chrome(chromedriver_location)
     driver.get(url)
 
     #get rid of ads and pop ups
